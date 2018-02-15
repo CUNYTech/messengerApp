@@ -6,30 +6,31 @@ import './home.css';
 // TODO: Look into semantic for placing of home section.
 
 const HomePage = () => (
-  <div style={{"background": "black", "height": "100vh"}}>    
+  <div style={{ background: 'black', height: '100vh' }}>
     <Particles params={{
-      "particles": {
-        "number": {
-          "density": {
-            "enable": true,
-            "value_area": 300
-          }
+      particles: {
+        number: {
+          density: {
+            enable: true,
+            value_area: 300,
+          },
         },
-        "color": {
-          "value": "#3ee8ff"
-        },  
-        "move": {
-          "enable": true,
-          "speed": 9
-        }
+        color: {
+          value: '#3ee8ff',
+        },
+        move: {
+          enable: true,
+          speed: 9,
+        },
       },
-      "retina_detect": true
-    }}/>   
+      retina_detect: true,
+    }}
+    />
     <div className="ui container home">
-      <h1>Tangle Messenger</h1>  
+      <h1>Tangle Messenger</h1>
       <Link to="/login">Login</Link>
-    </div>  
-   </div>
+    </div>
+  </div>
 );
 
 export default HomePage;

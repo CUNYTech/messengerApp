@@ -6,8 +6,10 @@ import LoginForm from '../forms/LoginForm';
 
 class LoginPage extends React.Component {
 
-  submit = data => this.props.login(data).then(() => this.props.history.push('/'));
-  
+  submit(data) {
+    this.props.login(data).then(() => this.props.history.push('/'));
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -20,8 +22,9 @@ class LoginPage extends React.Component {
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  login: PropTypes.func,
 };
 
 export default connect(null, { login })(LoginPage);
