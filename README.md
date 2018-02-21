@@ -1,6 +1,6 @@
 # Messanger Outline
 
-(much more coming soon, I'm still figuring out how best to format this in markdown)
+(I'll also add more of a technical overview as we iron out the details)
 
 ## Splash Page
  ### Login
