@@ -4,7 +4,7 @@
 
 ## Splash Page
  ### Login
- This page will contain the login and a place to register. When register the account will be assigned a private key. I think we should    also offer a way to not register and just search into a chat.
+ This page will contain the login and a place to register. I think we should    also offer a way to not register and just search into a chat.
 
 ## Chat Loader Page
    ### Create Chat Button
