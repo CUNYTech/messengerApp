@@ -10,9 +10,10 @@ const HomePage = () => (
     <Particles params={{
       particles: {
         number: {
+          value: 200,
           density: {
             enable: true,
-            value_area: 250,
+            value_area: 800,
           },
         },
         color: {
@@ -23,7 +24,7 @@ const HomePage = () => (
           speed: 9,
         },
       },
-      retina_detect: true,
+      retina_detect: false,
     }}
     />
     <div className="ui container home">
