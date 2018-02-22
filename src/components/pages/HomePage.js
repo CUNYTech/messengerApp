@@ -12,7 +12,7 @@ const HomePage = () => (
         number: {
           density: {
             enable: true,
-            value_area: 300,
+            value_area: 250,
           },
         },
         color: {
