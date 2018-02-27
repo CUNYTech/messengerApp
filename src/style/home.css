@@ -27,10 +27,6 @@ button.medium.ui.button {
   display: block;
 }
 
-div.buttonBox {
-  /* TODO: Weight this to bottom */
-}
-
 .home {
   position: absolute;
   top: 50%;
@@ -45,4 +41,3 @@ div.buttonBox {
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
 }
-
