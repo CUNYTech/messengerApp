@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Particles from 'react-particles-js';
-import './home.css';
+import '../../style/home.css';
 
 // TODO: Look into semantic for placing of home section.
 
@@ -21,15 +21,18 @@ const HomePage = () => (
         },
         move: {
           enable: true,
-          speed: 9,
+          speed: 7,
         },
       },
       retina_detect: false,
     }}
     />
-    <div className="ui container home">
-      <h1>Tangle Messenger</h1>
-      <Link to="/login">Login</Link>
+    <div className="home">   
+      <h1 className="title">Tangle Chat</h1>
+      <div className="buttonBox"> 
+        <button className="medium ui button">Login</button>
+        <button className="medium ui button">Register</button>
+      </div>
     </div>
   </div>
 );

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700');
+
+body { 
+  margin: 0;
+  text-shadow: none;
+  color: black;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
+
+h1.title {
+  font-size: 2.25em;
+  font-weight: 700;
+  font-family: 'Titillium Web', sans-serif;
+  text-transform: uppercase;
+}
+
+button.medium.ui.button {
+  width: 100%;
+  margin: 2em 0 2em 0;
+  display: block;
+}
+
+div.buttonBox {
+  /* TODO: Weight this to bottom */
+}
+
+.home {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 40vw;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%0);
+  max-width: 90%;
+  padding: 2em 3em;
+  background-color: rgba(255, 255, 255, .95);
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  box-shadow: 0 0 10px 5px #888888;
+}
+
