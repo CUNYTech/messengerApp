@@ -47,7 +47,8 @@ class LoginForm extends React.Component {
     return (
       <div>
         <Form onSubmit={this.onSubmit}>
-          <Form.Field error={!!errors.email}>
+        <h2 className="formHead">Login</h2>
+          <Form.Field className="formBody" error={!!errors.email}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -59,7 +60,7 @@ class LoginForm extends React.Component {
             />
             {errors.email && <InlineError text={errors.email} />}
           </Form.Field>
-          <Form.Field error={!!errors.password}>
+          <Form.Field className="formBody" error={!!errors.password}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
