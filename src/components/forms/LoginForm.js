@@ -1,6 +1,4 @@
-    /* eslint-disable class-methods-use-this */
 import React from 'react';
-import PropTypes from 'prop-types';
 // import axios from 'axios';
 import { Form, Button } from 'semantic-ui-react';
 import Validator from 'validator';
@@ -32,7 +30,6 @@ class LoginForm extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      console.log(this.state.data);
       // TODO: This is where you'll use axios to post the data to the API.
     }
   }
@@ -79,9 +76,5 @@ class LoginForm extends React.Component {
     );
   }
 }
-
-LoginForm.propTypes = {
-  submit: PropTypes.func,
-};
 
 export default LoginForm;
