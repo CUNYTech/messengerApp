@@ -14,7 +14,6 @@ class HomeBox extends Component {
 
   clickHandler(e) {
     e.preventDefault();
-    console.log(e.target.name);
     this.setState({ mode: e.target.name });
   }
 

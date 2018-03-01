@@ -41,3 +41,7 @@ button.medium.ui.button {
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
 }
+
+a {
+  color: inherit;
+}

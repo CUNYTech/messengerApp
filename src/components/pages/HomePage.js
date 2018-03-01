@@ -28,10 +28,11 @@ const HomePage = () => (
       />
     </div>
     <div className="home">
-      <h1 className="title">Tangle Chat</h1>
+      <a href="."><h1 className="title">Tangle Chat</h1></a>
       {
         // TODO: Need to use (react-router?) to check if we're at the home page.
         // If we are, add back button of some sort.
+        // TODO: The link up there is temporary until react-router is setup.
       }
       <HomeBox />
     </div>

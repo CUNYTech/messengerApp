@@ -10,14 +10,18 @@ class RegisterForm extends React.Component {
     this.state = {
       data: {
         email: '',
+        username: '',
         password: '',
+        confirmP: '',
       },
+      confirmPErr: false,
       loading: false,
       errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.blurHandler = this.blurHandler.bind(this);
   }
 
   onChange(e) {
@@ -31,6 +35,7 @@ class RegisterForm extends React.Component {
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       // TODO: This is where you'll use axios to post the data to the API.
+      console.log(this.state.data);
     }
   }
 
@@ -38,16 +43,24 @@ class RegisterForm extends React.Component {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
     if (!data.password) errors.password = "Can't be blank";
+    if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
+  }
+
+  blurHandler() {
+    if (this.state.data.confirmP !== this.state.data.password) {
+      const errors = { confirmP: "This password doesn't match." };
+      this.setState({ errors, confirmPErr: true });
+    }
   }
 
   render() {
     const { data, errors } = this.state;
     return (
       <div>
+        <h2>Register:</h2>
         <Form onSubmit={this.onSubmit}>
           <Form.Field error={!!errors.email}>
-            <h2>Register</h2>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -58,6 +71,18 @@ class RegisterForm extends React.Component {
               onChange={this.onChange}
             />
             {errors.email && <InlineError text={errors.email} />}
+          </Form.Field>
+          <Form.Field error={!!errors.name}>
+            <label htmlFor="name">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="username"
+              value={data.username}
+              onChange={this.onChange}
+            />
+            {errors.username && <InlineError text={errors.username} />}
           </Form.Field>
           <Form.Field error={!!errors.password}>
             <label htmlFor="password">Password</label>
@@ -71,17 +96,18 @@ class RegisterForm extends React.Component {
             />
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
-          <Form.Field error={!!errors.password}>
-            <label htmlFor="password">Enter Password Again</label>
+          <Form.Field error={!!errors.confirmP}>
+            <label htmlFor="confirmP">Enter Password Again</label>
             <input
               type="password"
-              id="password"
-              name="password"
+              id="confirmP"
+              name="confirmP"
+              onBlur={this.blurHandler}
               placeholder="Make it secure"
-              value={data.password}
+              value={data.confirmP}
               onChange={this.onChange}
             />
-            {errors.password && <InlineError text={errors.password} />}
+            {errors.confirmP && <InlineError text={errors.confirmP} />}
           </Form.Field>
           <Button primary>Login</Button>
         </Form>

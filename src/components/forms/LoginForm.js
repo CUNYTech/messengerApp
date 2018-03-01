@@ -31,7 +31,6 @@ class LoginForm extends React.Component {
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       // TODO: This is where you'll use axios to post the data to the API.
-
     }
   }
 
@@ -46,6 +45,7 @@ class LoginForm extends React.Component {
     const { data, errors } = this.state;
     return (
       <div>
+        <h3>Login:</h3>
         <Form onSubmit={this.onSubmit}>
           <Form.Field error={!!errors.email}>
             <label htmlFor="email">Email</label>
