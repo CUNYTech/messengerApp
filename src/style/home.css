@@ -41,3 +41,41 @@ button.medium.ui.button {
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
 }
+
+@media only screen and (max-width: 680px) {
+  .home {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .home {
+    width: 70%;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-height: 480px) {
+  .home {
+    height: 70vh;
+    width: 60vw;
+    padding: 1em 1em;
+  }
+
+  h1.title {
+    font-size: 1.25em;
+    margin-bottom: 0.25em;
+  }
+
+  .buttonBox {
+    margin: 0 auto;
+  }
+
+  .formHead {
+    font-size: 1em;
+    margin-bottom: 0.25em;
+  }
+
+  .formBody {
+    font-size: 0.75em;
+  }
+}

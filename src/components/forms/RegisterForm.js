@@ -58,7 +58,8 @@ class RegisterForm extends React.Component {
       <div>
         <h2>Register:</h2>
         <Form onSubmit={this.onSubmit}>
-          <Form.Field error={!!errors.email}>
+        <h2 className="formHead">Register</h2>
+          <Form.Field className="formBody" error={!!errors.email}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -70,7 +71,7 @@ class RegisterForm extends React.Component {
             />
             {errors.email && <InlineError text={errors.email} />}
           </Form.Field>
-          <Form.Field error={!!errors.username}>
+          <Form.Field className="formBody" error={!!errors.username}>
             <label htmlFor="name">Username</label>
             <input
               type="text"
@@ -82,7 +83,7 @@ class RegisterForm extends React.Component {
             />
             {errors.username && <InlineError text={errors.username} />}
           </Form.Field>
-          <Form.Field error={!!errors.password}>
+          <Form.Field className="formBody" error={!!errors.password}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -94,7 +95,7 @@ class RegisterForm extends React.Component {
             />
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
-          <Form.Field error={!!errors.confirmP}>
+          <Form.Field className="formBody" error={!!errors.confirmP}>
             <label htmlFor="confirmP">Enter Password Again</label>
             <input
               type="password"
