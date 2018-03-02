@@ -1,6 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
 import { Form, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
@@ -107,7 +108,15 @@ class RegisterForm extends React.Component {
             />
             {errors.confirmP && <InlineError text={errors.confirmP} />}
           </Form.Field>
-          <Button primary>Login</Button>
+          <div className="navs">
+            <Link to="/">
+              <div className="button ui secondary">
+                <i className="angle left" />
+                Back
+              </div>
+            </Link>
+            <Button primary>Register</Button>
+          </div>
         </Form>
       </div>
     );

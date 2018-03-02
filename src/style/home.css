@@ -27,6 +27,11 @@ button.medium.ui.button {
   display: block;
 }
 
+div.navs {
+  display: flex;
+  justify-content: space-between;
+}
+
 .home {
   position: absolute;
   top: 50%;
@@ -40,6 +45,10 @@ button.medium.ui.button {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
+}
+
+a {
+  color: inherit;
 }
 
 @media only screen and (max-width: 680px) {

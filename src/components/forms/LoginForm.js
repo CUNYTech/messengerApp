@@ -1,6 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
 import { Form, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
@@ -31,6 +32,7 @@ class LoginForm extends React.Component {
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       // TODO: This is where you'll use axios to post the data to the API.
+      console.log(this.state.data);
     }
   }
 
@@ -71,10 +73,18 @@ class LoginForm extends React.Component {
             />
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
-          <Button primary>Login</Button>
+          <div className="navs">
+            <Link to="/">
+              <div className="button ui secondary">
+                <i className="angle left" />
+                Back
+              </div>
+            </Link>
+            <Button primary>Login</Button>
+          </div>
         </Form>
       </div>
-    );
+    ); // TODO: Get glyph to show up on back button and fix bug about links not working after home?
   }
 }
 
