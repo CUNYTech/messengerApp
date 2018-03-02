@@ -47,7 +47,6 @@ class LoginForm extends React.Component {
       <div>
         <h3>Login:</h3>
         <Form onSubmit={this.onSubmit}>
-        <h2 className="formHead">Login</h2>
           <Form.Field className="formBody" error={!!errors.email}>
             <label htmlFor="email">Email</label>
             <input

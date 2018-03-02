@@ -42,7 +42,7 @@ class RegisterForm extends React.Component {
   validate(data) {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
-    if (!data.username) errors.username = "Username required"; // TODO: Further username validations, length, is taken, etc.
+    if (!data.username) errors.username = 'Username required'; // TODO: Further username validations, length, is taken, etc.
     if (!data.password) errors.password = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
@@ -58,7 +58,6 @@ class RegisterForm extends React.Component {
       <div>
         <h2>Register:</h2>
         <Form onSubmit={this.onSubmit}>
-        <h2 className="formHead">Register</h2>
           <Form.Field className="formBody" error={!!errors.email}>
             <label htmlFor="email">Email</label>
             <input
