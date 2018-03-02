@@ -31,6 +31,10 @@ button.medium.ui.button {
   display: block;
 }
 
+button.ui.secondary.icon.left.labeled.button {
+  padding-left: 3em!important;
+}
+
 div.navs {
   display: flex;
   justify-content: space-between;

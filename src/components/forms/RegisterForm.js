@@ -1,6 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
@@ -44,6 +44,7 @@ class RegisterForm extends React.Component {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
     if (!data.username) errors.username = 'Username required'; // TODO: Further username validations, length, is taken, etc.
+    // TODO: Password validation required too.
     if (!data.password) errors.password = "Can't be blank";
     if (!data.confirmP) errors.confirmP = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
@@ -111,10 +112,10 @@ class RegisterForm extends React.Component {
           </Form.Field>
           <div className="navs">
             <Link to="/">
-              <div className="button ui secondary">
-                <i className="angle left" />
+              <Button secondary icon labelPosition="left">
+                <Icon name="chevron left" />
                 Back
-              </div>
+              </Button>
             </Link>
             <Button primary>Register</Button>
           </div>
