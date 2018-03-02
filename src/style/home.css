@@ -7,11 +7,14 @@ body {
 }
 
 canvas {
-  display: block;
   position: absolute;
   width: 100vw;
   height: 100vh;
   background: black;
+}
+
+a {
+  color: inherit;
 }
 
 h1.title {
@@ -19,6 +22,7 @@ h1.title {
   font-weight: 700;
   font-family: 'Titillium Web', sans-serif;
   text-transform: uppercase;
+  cursor: default;
 }
 
 button.medium.ui.button {
@@ -37,8 +41,7 @@ div.navs {
   top: 50%;
   right: 50%;
   width: 40vw;
-  -webkit-transform: translate(50%, -50%);
-  transform: translate(50%, -50%0);
+  transform: translate(50%, -50%);
   max-width: 90%;
   padding: 2em 3em;
   background-color: rgba(255, 255, 255, .95);
@@ -47,9 +50,6 @@ div.navs {
   box-shadow: 0 0 10px 5px #888888;
 }
 
-a {
-  color: inherit;
-}
 
 @media only screen and (max-width: 680px) {
   .home {

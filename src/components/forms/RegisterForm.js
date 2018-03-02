@@ -45,6 +45,7 @@ class RegisterForm extends React.Component {
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
     if (!data.username) errors.username = 'Username required'; // TODO: Further username validations, length, is taken, etc.
     if (!data.password) errors.password = "Can't be blank";
+    if (!data.confirmP) errors.confirmP = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
   }

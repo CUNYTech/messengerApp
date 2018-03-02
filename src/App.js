@@ -8,7 +8,7 @@ import './style/home.css';
 
 const App = () => (
   <div>
-    <div style={{ background: 'black', height: '100vh' }}>
+    <div>
       <Particles params={{
         particles: {
           number: {
