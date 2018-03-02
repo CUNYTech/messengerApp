@@ -28,7 +28,7 @@ const HomePage = () => (
       />
     </div>
     <div className="home">
-      <a href="."><h1 className="title">Tangle Chat</h1></a>
+      <h1 className="title">Tangle Chat</h1>
       {
         // TODO: Need to use (react-router?) to check if we're at the home page.
         // If we are, add back button of some sort.

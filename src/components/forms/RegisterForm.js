@@ -21,7 +21,7 @@ class RegisterForm extends React.Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.blurHandler = this.blurHandler.bind(this);
+    this.focusHandler = this.focusHandler.bind(this);
   }
 
   onChange(e) {
@@ -42,16 +42,14 @@ class RegisterForm extends React.Component {
   validate(data) {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
+    if (!data.username) errors.username = "Username required"; // TODO: Further username validations, length, is taken, etc.
     if (!data.password) errors.password = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
   }
 
-  blurHandler() {
-    if (this.state.data.confirmP !== this.state.data.password) {
-      const errors = { confirmP: "This password doesn't match." };
-      this.setState({ errors, confirmPErr: true });
-    }
+  focusHandler() {
+    if (this.state.confirmPErr) this.setState({ confirmPErr: false });
   }
 
   render() {
@@ -72,13 +70,13 @@ class RegisterForm extends React.Component {
             />
             {errors.email && <InlineError text={errors.email} />}
           </Form.Field>
-          <Form.Field error={!!errors.name}>
+          <Form.Field error={!!errors.username}>
             <label htmlFor="name">Username</label>
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="username"
+              placeholder="Username"
               value={data.username}
               onChange={this.onChange}
             />
@@ -102,7 +100,7 @@ class RegisterForm extends React.Component {
               type="password"
               id="confirmP"
               name="confirmP"
-              onBlur={this.blurHandler}
+              onFocus={this.focusHandler}
               placeholder="Make it secure"
               value={data.confirmP}
               onChange={this.onChange}
