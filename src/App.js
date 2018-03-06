@@ -12,14 +12,11 @@ const App = () => (
       <Particles params={{
         particles: {
           number: {
-            value: 200,
+            value: 180,
             density: {
               enable: true,
               value_area: 800,
             },
-          },
-          color: {
-            value: '#3ee8ff',
           },
           move: {
             enable: true,

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import axios from 'axios';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
-class RegisterForm extends React.Component {
+class RegisterForm extends Component {
   constructor() {
     super();
     this.state = {

@@ -4,6 +4,8 @@ body {
   margin: 0;
   text-shadow: none;
   color: black;
+  min-width: 400px;
+  font-size: 16px;
 }
 
 canvas {
@@ -29,6 +31,8 @@ button.medium.ui.button {
   width: 100%;
   margin: 2em 0 2em 0;
   display: block;
+  color: rgba(0,0,0,.8);
+  font-size: .75em;
 }
 
 button.ui.secondary.icon.left.labeled.button {
@@ -50,6 +54,8 @@ div.navs {
   padding: 2em 3em;
   background-color: rgba(255, 255, 255, .95);
   font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
 }
