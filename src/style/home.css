@@ -52,8 +52,12 @@ div.navs {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   box-shadow: 0 0 10px 5px #888888;
+  overflow-y: scroll;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 @media only screen and (max-width: 680px) {
   .home {
