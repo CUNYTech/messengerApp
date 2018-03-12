@@ -5,10 +5,13 @@
   "dependencies": {
     "autoprefixer": "^8.0.0",
     "axios": "^0.17.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.9",
     "normalize.css": "^8.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -43,6 +46,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }
