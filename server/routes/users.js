@@ -8,7 +8,7 @@ const router = new express.Router();
 const User = require('../models/user');
 
 // READ ALL USERS
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
   User.find((err, users) => {
     if(err) {
       res.send(err);
@@ -33,7 +33,7 @@ router.post('/register', (req, res) => {
 });
 
 // UPDATE AN EXISTING USER
-router.put('/users/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   User.findById(req.params.id, (err, user) => {
     if(err) {
       res.send(err);
@@ -52,7 +52,7 @@ router.put('/users/:id', (req, res) => {
 });
 
 // DELETE AN EXISTING USER
-router.delete('/users/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   User.remove({_id: req.params.id}, (err, user) => {
     if(err) {
       res.send(err);

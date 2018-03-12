@@ -41,7 +41,7 @@ class RegisterForm extends Component {
       axios.post('http://localhost:8080/users/register', {
         email: this.state.data.email,
         username: this.state.data.username,
-        password: this.state.data.password
+        password: this.state.data.password,
       }).then((res) => {
         console.log(res.data);
       }).catch((err) => {
