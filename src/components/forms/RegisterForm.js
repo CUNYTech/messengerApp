@@ -22,7 +22,6 @@ class RegisterForm extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.focusHandler = this.focusHandler.bind(this);
   }
 
   onChange(e) {
@@ -32,13 +31,14 @@ class RegisterForm extends Component {
   }
 
   onSubmit(e) {
+    // TODO: Enter key not submitting form?
     e.preventDefault();
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
       console.log(this.state.data);
       // TODO: add api url to props
-      axios.post('http://localhost:8080/users/register', {
+      axios.post(':8080/users/register', {
         email: this.state.data.email,
         username: this.state.data.username,
         password: this.state.data.password,
@@ -51,6 +51,9 @@ class RegisterForm extends Component {
     }
   }
 
+  // TODO: Get URL in props so can reference in files down the chain.
+  // TODO: Adequatly display server errors in FE.
+
   validate(data) {
     const errors = {};
     if (!Validator.isEmail(data.email)) errors.email = 'Invalid email';
@@ -60,10 +63,6 @@ class RegisterForm extends Component {
     if (!data.confirmP) errors.confirmP = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
-  }
-
-  focusHandler() {
-    if (this.state.confirmPErr) this.setState({ confirmPErr: false });
   }
 
   render() {
@@ -114,7 +113,6 @@ class RegisterForm extends Component {
               type="password"
               id="confirmP"
               name="confirmP"
-              onFocus={this.focusHandler}
               placeholder="Make it secure"
               value={data.confirmP}
               onChange={this.onChange}

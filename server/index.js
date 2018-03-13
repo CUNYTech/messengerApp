@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
+const users = require('./routes/users');
 
 const app = express();
 
 // allow JSON data in request body
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // To prevent errors from Cross Origin Resource Sharing
@@ -19,7 +19,6 @@ app.use((req, res, next) => {
 });
 
 // configure users API
-const users = require('./routes/users');
 app.use('/users', users);
 
 const port = process.env.API_PORT || 8080;
