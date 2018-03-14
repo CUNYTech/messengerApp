@@ -11,12 +11,23 @@ class Contact extends Component {
 }
 
 class ContactBox extends Component {
+  constructor(props) {
+    super(props);
+    this.createContact.bind(this);
+  }
+
+  createContact(user, i) {
+    return (
+      <div>
+        <Contact username={user} index={i} key={i}/>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="contactBox">
-        <Contact username="AAA" />
-        <Contact username="BBB" />
-        <Contact username="CCC" />
+        {this.props.contacts.map(this.createContact)}
       </div>
     );
   }

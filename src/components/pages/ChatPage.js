@@ -7,6 +7,13 @@ import ContactBox from '../ContactBox';
 import InputBox from '../InputBox';
 
 class ChatPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contacts: ["AAA", "BBB", "CCC"] // should get this from server(?)
+    };
+  }
+
   render() {
     return (
       <div className="main">
@@ -16,7 +23,7 @@ class ChatPage extends Component {
           </Link>
           <div className="chatHeader">Name</div>
         </header>
-        <ContactBox />
+        <ContactBox contacts={this.state.contacts} />
         <MessageBox />
         <InputBox />
       </div>
