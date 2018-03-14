@@ -22,7 +22,6 @@ class RegisterForm extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.focusHandler = this.focusHandler.bind(this);
   }
 
   onChange(e) {
@@ -32,6 +31,7 @@ class RegisterForm extends Component {
   }
 
   onSubmit(e) {
+    // TODO: Enter key not submitting form?
     e.preventDefault();
     const errors = this.validate(this.state.data);
     this.setState({ errors });
@@ -46,10 +46,12 @@ class RegisterForm extends Component {
         console.log(res.data);
       }).catch((err) => {
         console.error(err);
-        // TODO: setState
       });
     }
   }
+
+  // TODO: Get URL in props so can reference in files down the chain.
+  // TODO: Adequatly display server errors in FE.
 
   validate(data) {
     const errors = {};
@@ -60,10 +62,6 @@ class RegisterForm extends Component {
     if (!data.confirmP) errors.confirmP = "Can't be blank";
     if (data.confirmP !== data.password) errors.confirmP = "Passwords don't match.";
     return errors;
-  }
-
-  focusHandler() {
-    if (this.state.confirmPErr) this.setState({ confirmPErr: false });
   }
 
   render() {
@@ -114,7 +112,6 @@ class RegisterForm extends Component {
               type="password"
               id="confirmP"
               name="confirmP"
-              onFocus={this.focusHandler}
               placeholder="Make it secure"
               value={data.confirmP}
               onChange={this.onChange}
