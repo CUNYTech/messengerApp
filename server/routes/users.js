@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 mongoose.connect('mongodb://localhost/tanglechat');
 
@@ -18,15 +19,24 @@ router.get('/', (req, res) => {
 // CREATE A NEW USER
 router.post('/register', (req, res) => {
   // add a new user to the database
-  const user = new User();
-  user.email = req.body.email;
-  user.username = req.body.username;
-  user.password = req.body.password;
-  user.save((err) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'User successfully registered.' });
+  let user = new User({
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password,
+  });
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(user.password, salt, (error, hash) => {
+      if (error) {
+        res.send(error);
+      }
+      user.password = hash;
+      user.save((wr_error) => {
+        if (wr_error) {
+          res.send(wr_error);
+        }
+        res.json({ message: 'User successfully registered.' });
+      });
+    });
   });
 });
 
