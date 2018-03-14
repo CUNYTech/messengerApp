@@ -5,6 +5,7 @@ import Home from './components/pages/Home';
 import LoginForm from './components/forms/LoginForm';
 import RegisterForm from './components/forms/RegisterForm';
 import './style/home.css';
+import ChatPage from './components/pages/ChatPage';
 
 const App = () => (
   <div>
@@ -35,6 +36,7 @@ const App = () => (
         <Route path="/register" component={RegisterForm} />
       </Switch>
     </div>
+    <Route path="/chatpage" exact component={ChatPage} />
   </div>
 );
 

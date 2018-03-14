@@ -1,0 +1,117 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    color: black;
+    font-size: 1em;
+}
+
+
+
+/* Start: header */
+header {
+    position: relative;
+    background-color: hsla(0, 10%, 90%, 0.9);
+    width: 100vw;
+    height: 5vh;
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 25vw 75vw;
+}
+
+header button.ui.button {
+    grid-area: left;
+    background: hsla(0, 10%, 90%, 0.9);
+}
+
+header .chatHeader {
+    grid-area: right;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 0.25em;
+    font-weight: bold;
+}
+/* End: header */
+
+
+
+/* Start: contactBox */
+.contactBox {
+    position: fixed;
+    float: left;
+    height: 95vh;
+    width: 25vw;
+    background-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.5em 0.5em;
+    border: black 1px solid;
+    border-radius: 15px;
+    margin: 0.5em;
+    background-color: hsla(100, 0%, 100%, 0.9);
+}
+
+.contact:hover {
+    background-color: hsla(100, 0%, 100%, 1);
+}
+/* End: contactBox */
+
+
+
+/* Start: messageBox */
+.messageBox {
+    position: relative;
+    display: grid;
+    grid-auto-rows: 3.5em;
+    grid-auto-flow: row;
+    float: right;
+    width: 75vw;
+    height: 85vh;
+    background-color: hsla(0, 0%, 60%, 1 );
+    justify-items: start;
+}
+
+.message {
+    padding: 0.5em 0.5em;
+    display: inline-block;
+    margin: 0.5em;
+    border: black 1px solid;
+    border-radius: 15px;
+    background-color: white;
+    max-width: 50%;
+    overflow-y: scroll;
+}
+
+.message.toRight {
+    justify-self: end;
+}
+/* End: messageBox */
+
+
+
+/* Start: inputBox */
+.inputBox {
+    position: relative;
+    float: right;
+    height: 10vh;
+    width: 75vw;
+    background-color: hsla(0, 0%, 60%, 1);
+}
+
+.inputBox form.ui.form {
+    display: grid;
+    grid-template-areas: "input button";
+    grid-template-columns: 9fr 1fr;
+}
+
+.inputBox textarea {
+    grid-area: input;
+}
+
+.inputBox button {
+    grid-area: button;
+}
+/* End: inputBox */

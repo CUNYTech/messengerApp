@@ -80,7 +80,9 @@ class LoginForm extends React.Component {
                 Back
               </Button>
             </Link>
-            <Button primary>Login</Button>
+            <Link to="/chatpage">
+              <Button primary>Login</Button>
+            </Link>
           </div>
         </Form>
       </div>
