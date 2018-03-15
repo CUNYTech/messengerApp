@@ -1,0 +1,49 @@
+[
+  {
+    "user": "AAA",
+    "messages": [
+      {
+        "text": "Hi",
+        "fromMe": true
+      },
+      {
+        "text": "Hi AAA, nice to see you again",
+        "fromMe": false
+      },
+      {
+        "text": "Yea, me too",
+        "fromMe": true
+      }
+    ]
+  },
+  {
+    "user": "BBB",
+    "messages": [
+      {
+        "text": "Are you free this Sunday",
+        "fromMe": false
+      },
+      {
+        "text": "No, I have part time job on that day",
+        "fromMe": true
+      }
+    ]
+  },
+  {
+    "user": "CCC",
+    "messages": [
+      {
+        "text": "I'm tired of coding all day long",
+        "fromMe": true
+      },
+      {
+        "text": "I'm so stressed",
+        "fromMe": true
+      },
+      {
+        "text": "Bro, you need a break",
+        "fromMe": false
+      }
+    ]
+  }
+]
