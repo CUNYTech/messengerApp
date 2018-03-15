@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 /*
 Message can now be rendered using props passed from parent
 NEXT STEP: update messages when the currentUser is changed in ChatPage <--DONE
-NEXT STEP: connect inputBox with this and update messages
+NEXT STEP: connect inputBox with this and update messages <--DONE
 */
 class Message extends Component {
   render() {

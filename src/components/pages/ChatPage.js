@@ -37,6 +37,18 @@ class ChatPage extends Component {
     });
   }
 
+  addNewMessage = (newText, newFromMe) => {
+    let arr = this.state.currentMessages;
+    let newMessage = {
+      text: newText,
+      fromMe: newFromMe
+    };
+    arr.push(newMessage);
+    this.setState({
+      currentMessages: arr
+    });
+  }
+
   render() {
     return (
       <div className="main">
@@ -48,7 +60,7 @@ class ChatPage extends Component {
         </header>
         <ContactBox contacts={this.state.contacts} updateUser={this.updateCurrentUser}/>
         <MessageBox messages={this.state.currentMessages} />
-        <InputBox />
+        <InputBox handleSend={this.addNewMessage} />
       </div>
     );
   }

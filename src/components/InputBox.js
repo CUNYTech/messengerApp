@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, TextArea, Button, Icon } from 'semantic-ui-react';
 /*
 The input is now able to be caught
-NEXT STEP: find way to update message box
+NEXT STEP: find way to update message box <--DONE
 */
 class InputBox extends Component {
   constructor(props) {
@@ -13,10 +13,12 @@ class InputBox extends Component {
   }
 
   handleSubmit = (e) => {
-    this.setState({
-      inputText: ""
-    });
-    console.log(this.state.inputText);
+    if (this.state.inputText) { // send only if the string is not empty
+      this.setState({
+        inputText: ""
+      });
+      this.props.handleSend(this.state.inputText, true);
+    }
   }
 
   handleChange = (e) => {
