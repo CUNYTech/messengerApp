@@ -1,10 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const config = require('../../config/db.config');
 
-mongoose.connect('mongodb://localhost/tanglechat');
+mongoose.connect(config.database);
 
 const router = new express.Router();
+
+// Passport config
+require('../../config/passport.config')(passport);
+
+// Passport middlesware
+router.use(passport.initialize());
+router.use(passport.session());
 
 const User = require('../models/user');
 
@@ -15,6 +24,17 @@ router.get('/', (req, res) => {
     res.json(users);
   });
 });
+
+// LOGIN PROCESS
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) return next(err);
+    if (!user) return res.json(info);
+    res.json({ message: 'User successfully logged in!' });
+  })(req, res, next);
+});
+
+
 
 // CREATE A NEW USER
 router.post('/register', (req, res) => {
@@ -34,7 +54,7 @@ router.post('/register', (req, res) => {
         if (wr_error) {
           res.send(wr_error);
         }
-        res.json({ message: 'User successfully registered.' });
+        res.json({ message: 'User successfully registered!' });
       });
     });
   });
