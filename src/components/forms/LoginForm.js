@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import { Form, Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Validator from 'validator';
@@ -31,8 +31,15 @@ class LoginForm extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      // TODO: This is where you'll use axios to post the data to the API.
       console.log(this.state.data);
+      axios.post('http://localhost:8080/users/login', {
+        email: this.state.data.email,
+        password: this.state.data.password,
+      }).then((res) => {
+        console.log(res.data);
+      }).catch((err) => {
+        console.error(err);
+      });
     }
   }
 

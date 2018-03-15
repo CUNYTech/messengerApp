@@ -44,6 +44,7 @@ class RegisterForm extends Component {
         password: this.state.data.password,
       }).then((res) => {
         console.log(res.data);
+        this.props.history.push('/login');
       }).catch((err) => {
         console.error(err);
       });

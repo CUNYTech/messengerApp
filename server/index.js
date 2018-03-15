@@ -5,7 +5,7 @@ const users = require('./routes/users');
 
 const app = express();
 
-// allow JSON data in request body
+// middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
