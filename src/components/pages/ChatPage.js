@@ -17,6 +17,7 @@ class ChatPage extends Component {
     };
   }
 
+  // function to get message array according to username
   getMessage = (username) => {
     let arr;
     let i;
@@ -28,20 +29,14 @@ class ChatPage extends Component {
     return (arr);
   }
 
+  // handler to update user and get messages when the button in contactBox is clicked
   updateCurrentUser = (user) => {
     this.setState({
-      currentUser: user
+      currentUser: user,
+      currentMessages: this.getMessage(user)
     });
   }
-/* NOT WORKING YET
-  updateCurrentMessage = () => {
-    let arr = this.getMessage(this.currentUser);
-    this.setState({
-      currentMessages: arr
-    });
-    console.log(this.state.currentMessages);
-  }
-*/
+
   render() {
     return (
       <div className="main">

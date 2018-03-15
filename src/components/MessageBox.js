@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 /*
 Message can now be rendered using props passed from parent
-NEXT STEP: update messages when the currentUser is changed in ChatPage
+NEXT STEP: update messages when the currentUser is changed in ChatPage <--DONE
+NEXT STEP: connect inputBox with this and update messages
 */
 class Message extends Component {
   render() {
@@ -14,13 +15,6 @@ class Message extends Component {
 }
 
 class MessageBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      messages: this.props.messages
-    };
-  }
-
   createMessage = (content, i) => {
     if (content.fromMe === true)
       return (
@@ -45,7 +39,7 @@ class MessageBox extends Component {
   render() {
     return (
       <div className="messageBox">
-        {this.state.messages.map(this.createMessage)}
+        {this.props.messages.map(this.createMessage)}
       </div>
     );
   }
