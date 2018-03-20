@@ -2,7 +2,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
 const User = require('../server/models/user');
-const config = require('./db.config');
 
 module.exports = (passport) => {
   // Local Strategy
@@ -10,21 +9,18 @@ module.exports = (passport) => {
     // change credentials (by default, LocalStrategy expects username and password)
     usernameField: 'email',
     passwordField: 'password',
-    session: false
+    session: false,
   }, (email, password, done) => {
     // match email
-    User.findOne({ email: email }, (err, user) => {
+    User.findOne({ email }, (err, user) => {
       if (err) return done(err);
-      if (!user) 
-        return done(null, false, { message: 'User not found.' });
+      if (!user) { return done(null, false, { message: 'User not found.' }); }
 
       // match password
       bcrypt.compare(password, user.password, (error, isMatch) => {
         if (error) return done(error);
-        if (isMatch) 
-          return done(null, user);
-        else
-          return done(null, false, { message: 'Incorrect password' });
+        if (isMatch) { return done(null, user); }
+        return done(null, false, { message: 'Incorrect password' });
       });
     });
   }));
@@ -38,4 +34,4 @@ module.exports = (passport) => {
       done(null, user);
     });
   });
-}
+};

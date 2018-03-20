@@ -15,7 +15,7 @@ class Message extends Component {
 }
 
 class MessageBox extends Component {
-  createMessage = (content, i) => {
+  createMessage (content, i) {
     if (content.fromMe === true)
       return (
         <div className="message toRight">

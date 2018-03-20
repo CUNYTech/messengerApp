@@ -39,7 +39,7 @@
     "prettier": "^1.6.1"
   },
   "scripts": {
-    "start": "eslint . && react-scripts start",
+    "start": "react-scripts start",
     "server": "nodemon server/index",
     "start-dev": "nf start -p 3000",
     "build": "react-scripts build",

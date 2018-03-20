@@ -35,24 +35,23 @@ router.post('/login', (req, res, next) => {
 });
 
 
-
 // CREATE A NEW USER
 router.post('/register', (req, res) => {
   // add a new user to the database
-  let user = new User({
+  const user = new User({
     email: req.body.email,
     username: req.body.username,
     password: req.body.password,
   });
-  bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(user.password, salt, (error, hash) => {
-      if (error) {
-        res.send(error);
+  bcrypt.genSalt(10, (saltErr, salt) => {
+    bcrypt.hash(user.password, salt, (hashErr, hash) => {
+      if (hashErr) {
+        res.send(hashErr);
       }
       user.password = hash;
-      user.save((wr_error) => {
-        if (wr_error) {
-          res.send(wr_error);
+      user.save((wrErr) => {
+        if (wrErr) {
+          res.send(wrErr);
         }
         res.json({ message: 'User successfully registered!' });
       });

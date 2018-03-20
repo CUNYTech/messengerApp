@@ -13,6 +13,7 @@ module.exports = {
         "react/prefer-stateless-function": 0,
         "class-methods-use-this": 0,
         "no-param-reassign": 0,
-        "array-callback-return": 0
+        "array-callback-return": 0,
+        "consistent-return": 0
     }
 };
