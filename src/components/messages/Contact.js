@@ -3,6 +3,11 @@ import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
+
   handleUpdate() {
     this.props.updateUser(this.props.username);
   }

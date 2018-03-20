@@ -15,6 +15,9 @@ class ChatPage extends Component {
       currentUser: sampleMsg[0].user,
       currentMessages: this.getMessage(sampleMsg[0].user),
     };
+    this.getMessage = this.getMessage.bind(this);
+    this.updateCurrentUser = this.updateCurrentUser.bind(this);
+    this.addNewMessage = this.addNewMessage.bind(this);
   }
 
   // function to get message array according to username
