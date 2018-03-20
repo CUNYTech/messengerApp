@@ -6,12 +6,10 @@ class ContactBox extends Component {
   render() {
     return (
       <div className="contactBox">
-        {this.props.contacts.map((user, i) => (
+        {this.props.contacts.map(user => (
           <div>
             <Contact
               username={user}
-              index={i}
-              key={i}
               updateUser={this.props.updateUser}
             />
           </div>

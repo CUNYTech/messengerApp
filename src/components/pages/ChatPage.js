@@ -38,13 +38,8 @@ class ChatPage extends Component {
   }
 
   addNewMessage(newText, newFromMe) {
-<<<<<<< HEAD
-    let arr = this.state.currentMessages;
-    let newMessage = {
-=======
     const arr = this.state.currentMessages;
     const newMessage = {
->>>>>>> b926c168781580815e21b9364d8515bdc4fa7a4a
       text: newText,
       fromMe: newFromMe,
     };
