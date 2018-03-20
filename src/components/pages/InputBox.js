@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { Form, TextArea, Button, Icon } from 'semantic-ui-react';
-/*
-The input is now able to be caught
-NEXT STEP: find way to update message box <--DONE
-*/
+import PropTypes from 'prop-types';
+
 class InputBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputText: ""
+      inputText: '',
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit() {
     if (this.state.inputText) { // send only if the string is not empty
       this.setState({
-        inputText: ""
+        inputText: '',
       });
       this.props.handleSend(this.state.inputText, true);
     }
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     this.setState({
-      inputText: e.target.value
+      inputText: e.target.value,
     });
   }
 
@@ -31,15 +29,21 @@ class InputBox extends Component {
     return (
       <div className="inputBox">
         <Form>
-          <TextArea autoHeight 
-            placeholder="Type your message here" 
+          <TextArea
+            autoHeight
+            placeholder="Type your message here"
             onChange={this.handleChange}
-            value={this.state.inputText} />
+            value={this.state.inputText}
+          />
           <Button icon onClick={this.handleSubmit}><Icon name="send" /></Button>
         </Form>
       </div>
-    )
+    );
   }
 }
+
+InputBox.propTypes = {
+  handleSend: PropTypes.func,
+};
 
 export default InputBox;
