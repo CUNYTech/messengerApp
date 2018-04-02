@@ -1,48 +1,56 @@
 [
   {
-    "user": "AAA",
+    "user": "Adam",
     "messages": [
       {
         "text": "Hi",
-        "fromMe": true
+        "fromMe": true,
+        "time": 1522605600
       },
       {
-        "text": "Hi AAA, nice to see you again",
-        "fromMe": false
+        "text": "Hi, nice to see you again",
+        "fromMe": false,
+        "time": 1522606800
       },
       {
         "text": "Yea, me too",
-        "fromMe": true
+        "fromMe": true,
+        "time": 1522607001
       }
     ]
   },
   {
-    "user": "BBB",
+    "user": "Bob",
     "messages": [
       {
         "text": "Are you free this Sunday",
-        "fromMe": false
+        "fromMe": false,
+        "time": 1522578082
       },
       {
         "text": "No, I have part time job on that day",
-        "fromMe": true
+        "fromMe": true,
+        "time": 1522581058
       }
     ]
   },
   {
-    "user": "CCC",
+    "user": "Charlie",
     "messages": [
       {
         "text": "I'm tired of coding all day long",
-        "fromMe": true
+        "fromMe": true,
+        "time": 1522590102
       },
       {
         "text": "I'm so stressed",
-        "fromMe": true
+        "fromMe": true,
+        "time": 1522590120
       },
       {
         "text": "Bro, you need a break",
-        "fromMe": false
+        "fromMe": false,
+        "time": 1522591511
       }
     ]
   }

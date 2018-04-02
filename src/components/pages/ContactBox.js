@@ -7,12 +7,10 @@ class ContactBox extends Component {
     return (
       <div className="contactBox">
         {this.props.contacts.map(user => (
-          <div>
-            <Contact
-              username={user}
-              updateUser={this.props.updateUser}
-            />
-          </div>
+          <Contact
+            username={user}
+            updateUser={this.props.updateUser}
+          />
         ))}
       </div>
     );

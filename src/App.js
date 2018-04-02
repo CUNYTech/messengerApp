@@ -39,7 +39,7 @@ const App = () => (
         <Route path="/register" component={RegisterForm} />
       </Switch>
     </div>
-    <Route path="/chatpage" exact component={ChatPage} />
+    <Route path="/chatpage" component={ChatPage} />
   </div>
 );
 

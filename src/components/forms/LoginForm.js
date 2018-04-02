@@ -88,7 +88,11 @@ class LoginForm extends React.Component {
                 Back
               </Link>
             </Button>
-            <Button type="submit" primary>Login</Button>
+            <Button type="submit" primary>
+              <Link to="/chatpage">
+                Login
+              </Link>
+            </Button>
           </div>
         </Form>
       </div>

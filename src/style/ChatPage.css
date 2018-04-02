@@ -41,21 +41,20 @@ header .chatHeader {
     height: 95vh;
     width: 25vw;
     background-color: hsla(0, 0%, 20%, 0.9);
-}
-
-.contact {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 0.5em 0.5em;
+    align-items: stretch;
+}
+
+.contactBox button {
+    display: inline-block;
+    padding: 1em 1em;
+    margin: 0.25em !important;
     border: black 1px solid;
     border-radius: 15px;
     margin: 0.5em;
-    background-color: hsla(100, 0%, 100%, 0.9);
-}
-
-.contact:hover {
-    background-color: hsla(100, 0%, 100%, 1);
+    background-color: hsla(100, 0%, 100%, 0.8);
 }
 /* End: contactBox */
 
@@ -64,29 +63,44 @@ header .chatHeader {
 /* Start: messageBox */
 .messageBox {
     position: relative;
-    display: grid;
-    grid-auto-rows: 3.5em;
-    grid-auto-flow: row;
     float: right;
+    display: flex;
+    flex-direction: column;
     width: 75vw;
     height: 85vh;
     background-color: hsla(0, 0%, 60%, 1 );
-    justify-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .message {
-    padding: 0.5em 0.5em;
     display: inline-block;
+    max-width: 65%;
     margin: 0.5em;
-    border: black 1px solid;
-    border-radius: 15px;
-    background-color: white;
-    max-width: 50%;
-    overflow-y: scroll;
 }
 
 .message.toRight {
-    justify-self: end;
+    align-self: flex-end;
+}
+
+.message .text {
+    padding: 0.5em 0.5em;
+    border: black 1px solid;
+    border-radius: 15px 15px 15px 5px;
+    background-color: white;
+    word-wrap: break-word;
+}
+
+.message .time {
+    font-size: 0.75em;
+}
+
+.message.toRight .text {
+    border-radius: 15px 15px 5px 15px;
+}
+
+.message.toRight .time {
+    text-align: right;
 }
 /* End: messageBox */
 
@@ -94,8 +108,11 @@ header .chatHeader {
 
 /* Start: inputBox */
 .inputBox {
-    position: relative;
+    position: fixed;
     float: right;
+    left: 25vw;
+    top: 90vh;
+    grid-area: inputBox;
     height: 10vh;
     width: 75vw;
     background-color: hsla(0, 0%, 60%, 1);
