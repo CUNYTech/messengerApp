@@ -47,8 +47,8 @@ button.medium.ui.button {
   font-size: 1.3em;
 }
 
-button.ui.secondary.icon.left.labeled.button {
-  padding-left: 3em!important;
+button.ui.icon.secondary.left.labeled {
+  padding-left: 1.5em !important;
 }
 
 div.navs {
