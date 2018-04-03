@@ -1,5 +1,9 @@
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+// const redis = require('redis');
+// const client = redis.createClient(6379, 'localhost');
 
 const users = require('./routes/users');
 
@@ -8,6 +12,14 @@ const app = express();
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+
+// TODO: app use session with server-side memory cache (redis) - this is faster than using mongo database
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
 // To prevent errors from Cross Origin Resource Sharing
 app.use((req, res, next) => {
