@@ -14,11 +14,9 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="contact">
-        <Button basic compact onClick={this.handleUpdate}>
+      <Button onClick={this.handleUpdate}>
           {this.props.username}
-        </Button>
-      </div>
+      </Button>
     );
   }
 }

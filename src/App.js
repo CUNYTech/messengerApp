@@ -7,6 +7,9 @@ import RegisterForm from './components/forms/RegisterForm';
 import './style/home.css';
 import ChatPage from './components/pages/ChatPage';
 
+// TODO: Duplicate users check, return errors instead on login / register fail, logging in by username or email?
+// TODO: Back button submits unless text clicked.
+
 const App = () => (
   <div>
     <div>
@@ -36,7 +39,7 @@ const App = () => (
         <Route path="/register" component={RegisterForm} />
       </Switch>
     </div>
-    <Route path="/chatpage" exact component={ChatPage} />
+    <Route path="/chatpage" component={ChatPage} />
   </div>
 );
 

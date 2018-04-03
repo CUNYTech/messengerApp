@@ -120,13 +120,13 @@ class RegisterForm extends Component {
             {errors.confirmP && <InlineError text={errors.confirmP} />}
           </Form.Field>
           <div className="navs">
-            <Link to="/">
-              <Button secondary icon labelPosition="left">
+            <Button secondary icon labelPosition="left">
+              <Link to="/">
                 <Icon name="chevron left" />
                 Back
-              </Button>
-            </Link>
-            <Button primary>Register</Button>
+              </Link>
+            </Button>
+            <Button type="submit" primary>Login</Button>
           </div>
         </Form>
       </div>

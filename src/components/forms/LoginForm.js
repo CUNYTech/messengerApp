@@ -28,15 +28,16 @@ class LoginForm extends React.Component {
   }
 
   onSubmit() {
+    console.log('submitted');
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      console.log(this.state.data);
       axios.post('http://localhost:8080/users/login', {
         email: this.state.data.email,
         password: this.state.data.password,
       }).then((res) => {
         console.log(res.data);
+        // TODO: If this is successful, send to login page.
       }).catch((err) => {
         console.error(err);
       });
@@ -81,15 +82,17 @@ class LoginForm extends React.Component {
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
           <div className="navs">
-            <Link to="/">
-              <Button secondary icon labelPosition="left">
+            <Button secondary icon labelPosition="left">
+              <Link to="/">
                 <Icon name="chevron left" />
                 Back
-              </Button>
-            </Link>
-            <Link to="/chatpage">
-              <Button primary>Login</Button>
-            </Link>
+              </Link>
+            </Button>
+            <Button type="submit" primary>
+              <Link to="/chatpage">
+                Login
+              </Link>
+            </Button>
           </div>
         </Form>
       </div>

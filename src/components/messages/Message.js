@@ -5,7 +5,12 @@ class Message extends Component {
   render() {
     return (
       <div>
-        {this.props.message}
+        <div className="text">
+          {this.props.message}
+        </div>
+        <div className="time">
+          {this.props.time}
+        </div>
       </div>
     );
   }
