@@ -40,11 +40,12 @@ class ChatPage extends Component {
     });
   }
 
-  addNewMessage(newText, newFromMe) {
+  addNewMessage(newText, newFromMe, newTime) {
     const arr = this.state.currentMessages;
     const newMessage = {
       text: newText,
       fromMe: newFromMe,
+      time: newTime,
     };
     arr.push(newMessage);
     this.setState({

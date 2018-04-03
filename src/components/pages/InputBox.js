@@ -17,7 +17,8 @@ class InputBox extends Component {
       this.setState({
         inputText: '',
       });
-      this.props.handleSend(this.state.inputText, true);
+      let currentTime = Date.now() / 1000;
+      this.props.handleSend(this.state.inputText, true, currentTime);
     }
   }
 
