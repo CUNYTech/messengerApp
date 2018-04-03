@@ -19,8 +19,6 @@ const User = require('../models/user');
 
 // READ ALL USERS
 router.get('/', (req, res) => {
-  res.json({ cookie: req.cookies });
-  // res.json({ session: req.session });
   User.find((err, users) => {
     if (err) res.send(err);
     res.json(users);
@@ -33,9 +31,7 @@ router.post('/login', (req, res, next) => {
     if (err) return next(err);
     if (!user) return res.json(info);
     // TODO: create user session data
-    req.session.user = user;
-    // res.json({ message: 'User ' + req.session.user.email + ' successfully logged in!' });
-    // res.json({ message: 'User successfully logged in!' });
+    // req.session.user = user;
     res.json({ message: 'User successfully logged in!', id: req.session.user })
   })(req, res, next);
 });
