@@ -11,7 +11,6 @@ class MessageBox extends Component {
             index={i}
             key={i}
             message={content.text}
-            fromMe={content.fromMe}
             time={content.time}
           />
         </div>
@@ -23,7 +22,6 @@ class MessageBox extends Component {
           index={i}
           key={i}
           message={content.text}
-          fromMe={content.fromMe}
           time={content.time}
         />
       </div>
