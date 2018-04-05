@@ -15,7 +15,12 @@ class Contact extends Component {
   render() {
     return (
       <Button onClick={this.handleUpdate}>
+        <div className="username">
           {this.props.username}
+        </div>
+        <div className="lastMessage">
+          {this.props.lastMessage}
+        </div>
       </Button>
     );
   }
@@ -24,6 +29,7 @@ class Contact extends Component {
 Contact.propTypes = {
   updateUser: PropTypes.func,
   username: PropTypes.string,
+  lastMessage: PropTypes.string,
 };
 
 export default Contact;

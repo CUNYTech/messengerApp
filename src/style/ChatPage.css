@@ -10,7 +10,7 @@
 /* Start: header */
 header {
     position: relative;
-    background-color: hsla(0, 10%, 90%, 0.9);
+    background-color: hsla(0, 10%, 90%, 1);
     width: 100vw;
     height: 5vh;
     display: grid;
@@ -20,7 +20,7 @@ header {
 
 header button.ui.button {
     grid-area: left;
-    background: hsla(0, 10%, 90%, 0.9);
+    background: hsla(0, 10%, 90%, 1);
 }
 
 header .chatHeader {
@@ -40,7 +40,7 @@ header .chatHeader {
     float: left;
     height: 95vh;
     width: 25vw;
-    background-color: hsla(0, 0%, 20%, 0.9);
+    background-color: hsla(0, 0%, 20%, 1);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -54,8 +54,23 @@ header .chatHeader {
     border: black 1px solid;
     border-radius: 15px;
     margin: 0.5em;
-    background-color: hsla(100, 0%, 100%, 0.8);
+    background-color: hsla(100, 0%, 100%, 1);
 }
+
+.contactBox .username {
+    font-size: 1.25em;
+    margin-bottom: 0.25em;
+}
+
+.contactBox .lastMessage {
+    font-weight: 400;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 1em;
+}
+
 /* End: contactBox */
 
 
@@ -74,7 +89,6 @@ header .chatHeader {
 }
 
 .message {
-    display: inline-block;
     max-width: 65%;
     margin: 0.5em;
 }
@@ -112,7 +126,6 @@ header .chatHeader {
     float: right;
     left: 25vw;
     top: 90vh;
-    grid-area: inputBox;
     height: 10vh;
     width: 75vw;
     background-color: hsla(0, 0%, 60%, 1);

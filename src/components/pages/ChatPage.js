@@ -62,7 +62,11 @@ class ChatPage extends Component {
           </Link>
           <div className="chatHeader">{this.state.currentUser}</div>
         </header>
-        <ContactBox contacts={this.state.contacts} updateUser={this.updateCurrentUser} />
+        <ContactBox
+          contacts={this.state.contacts}
+          updateUser={this.updateCurrentUser}
+          getUserMessage={this.getMessage}
+        />
         <MessageBox messages={this.state.currentMessages} />
         <InputBox handleSend={this.addNewMessage} />
       </div>
