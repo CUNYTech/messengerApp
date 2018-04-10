@@ -2,8 +2,6 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-// const redis = require('redis');
-// const client = redis.createClient(6379, 'localhost');
 
 const users = require('./routes/users');
 

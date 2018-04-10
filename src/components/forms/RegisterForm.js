@@ -36,7 +36,7 @@ class RegisterForm extends Component {
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      console.log(this.state.data);
+      // console.log(this.state.data);
       // TODO: add api url to props
       axios.post('http://localhost:8080/users/register', {
         email: this.state.data.email,
@@ -44,7 +44,10 @@ class RegisterForm extends Component {
         password: this.state.data.password,
       }).then((res) => {
         console.log(res.data);
-        this.props.history.push('/login');
+        if (res.data['success'])
+          this.props.history.push('/login');
+        else if (res.data['error'])
+          console.log(res.data['error']);
       }).catch((err) => {
         console.error(err);
       });

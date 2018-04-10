@@ -30,14 +30,18 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) return next(err);
     if (!user) return res.json(info);
-    // TODO: create user session data
-    // req.session.user = user;
-    res.json({ message: 'User successfully logged in!', id: req.session.user })
+    req.session.user = user;
+    res.json({ success: 'User successfully logged in!' })
+    // res.json('Hello ' + req.session.user.username);
+    // res.json(req.session);
   })(req, res, next);
 });
 
 // LOGOUT PROCESS
-// TDOD: destroy session data
+router.post('/logout', (req, res) => {
+  if (req.session) req.session.destroy();    // clear session data
+  res.json({ success: 'Successfully logged out!' });
+});
 
 
 // CREATE A NEW USER
@@ -51,14 +55,14 @@ router.post('/register', (req, res) => {
   bcrypt.genSalt(10, (saltErr, salt) => {
     bcrypt.hash(user.password, salt, (hashErr, hash) => {
       if (hashErr) {
-        res.send(hashErr);
+        res.json({ error: hashErr });
       }
       user.password = hash;
-      user.save((wrErr) => {
-        if (wrErr) {
-          res.send(wrErr);
+      user.save((writeErr) => {
+        if (writeErr) {
+          res.json({ error: writeErr });
         }
-        res.json({ message: 'User successfully registered!' });
+        res.json({ success: 'User successfully registered!' });
       });
     });
   });
