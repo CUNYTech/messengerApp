@@ -15,8 +15,9 @@ app.use(cookieParser());
 // TODO: app use session with server-side memory cache (redis) - this is faster than using mongo database
 app.use(session({
   secret: 'secret',
-  resave: true,
-  saveUninitialized: true
+  resave: true,            // autosave session everytime there is a change
+  saveUninitialized: true,  // save uninitialized (new) sessions
+  cookie: { httpOnly: true, maxAge: 2419200000 }  // configure when sessions expire
 }));
 
 // To prevent errors from Cross Origin Resource Sharing
