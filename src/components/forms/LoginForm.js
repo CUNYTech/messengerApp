@@ -37,8 +37,7 @@ class LoginForm extends React.Component {
         password: this.state.data.password,
       }).then((res) => {
         console.log(res.data);
-        // TODO: If this is successful, send to login page.
-        if (res.data['success'])
+        if (res.status === 200)
           this.props.history.push('/chatpage');
         else if (res.data['error'])
           console.log(res.data['error']);

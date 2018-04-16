@@ -28,10 +28,17 @@ router.get('/', (req, res) => {
 // LOGIN PROCESS
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
-    if (err) return next(err);
-    if (!user) return res.json(info);
+    if (err) {
+      res.status(500);
+      throw new Error(err);
+    }
+    if (!user) {
+      res.status(401);
+      return res.json(info);
+    }
     req.session.user = user;
-    res.json({ success: 'User successfully logged in!' })
+    res.status(200);
+    res.json({ success: 'User successfully logged in!' });
     // res.json('Hello ' + req.session.user.username);
     // res.json(req.session);
   })(req, res, next);
@@ -40,6 +47,7 @@ router.post('/login', (req, res, next) => {
 // LOGOUT PROCESS
 router.post('/logout', (req, res) => {
   if (req.session) req.session.destroy();    // clear session data
+  res.status(200);
   res.json({ success: 'Successfully logged out!' });
 });
 
@@ -55,13 +63,16 @@ router.post('/register', (req, res) => {
   bcrypt.genSalt(10, (saltErr, salt) => {
     bcrypt.hash(user.password, salt, (hashErr, hash) => {
       if (hashErr) {
+        res.status(500);
         res.json({ error: hashErr });
       }
       user.password = hash;
       user.save((writeErr) => {
         if (writeErr) {
+          res.status(500);
           res.json({ error: writeErr });
         }
+        res.status(200);
         res.json({ success: 'User successfully registered!' });
       });
     });
