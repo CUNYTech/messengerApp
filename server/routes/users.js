@@ -40,7 +40,7 @@ router.post('/login', (req, res, next) => {
     res.status(200);
     res.json({ success: 'User successfully logged in!' });
     // res.json('Hello ' + req.session.user.username);
-    // res.json(req.session);
+    // res.json(req.sessionID);
   })(req, res, next);
 });
 

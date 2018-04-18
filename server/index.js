@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const users = require('./routes/users');
+const iota_api = require('./routes/iota_api');
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(session({
   secret: 'secret',
   resave: true,            // autosave session everytime there is a change
   saveUninitialized: true,  // save uninitialized (new) sessions
-  cookie: { httpOnly: true, maxAge: 2419200000 }  // configure when sessions expire
+  cookie: { httpOnly: true, maxAge: (60*60*24) }  // configure when sessions expire
 }));
 
 // To prevent errors from Cross Origin Resource Sharing
@@ -32,6 +33,9 @@ app.use((req, res, next) => {
 
 // configure users API
 app.use('/users', users);
+
+// configure IOTA API
+app.use('/iota', iota_api);
 
 const port = process.env.API_PORT || 8080;
 
