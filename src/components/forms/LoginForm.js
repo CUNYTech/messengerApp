@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { Form, Button, Icon } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Form, Icon } from 'semantic-ui-react';
+import { Link, Redirect } from 'react-router-dom';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
@@ -82,17 +82,15 @@ class LoginForm extends React.Component {
             {errors.password && <InlineError text={errors.password} />}
           </Form.Field>
           <div className="navs">
-            <Button secondary icon labelPosition="left">
-              <Link to="/">
-                <Icon name="chevron left" />
-                Back
-              </Link>
-            </Button>
-            <Button type="submit" primary>
-              <Link to="/chatpage">
-                Login
-              </Link>
-            </Button>
+          <Link to="/">
+            <Icon name="chevron left" />
+            Back
+          </Link>
+            
+          <Form.Button type="submit" primary>
+            Login
+          </Form.Button>
+
           </div>
         </Form>
       </div>
