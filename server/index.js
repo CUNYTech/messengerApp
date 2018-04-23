@@ -1,13 +1,25 @@
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const users = require('./routes/users');
+const iota_api = require('./routes/iota_api');
 
 const app = express();
 
 // middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+
+// TODO: app use session with server-side memory cache (redis) - this is faster than using mongo database
+app.use(session({
+  secret: 'secret',
+  resave: true,            // autosave session everytime there is a change
+  saveUninitialized: true,  // save uninitialized (new) sessions
+  cookie: { httpOnly: true, maxAge: (60*60*24) }  // configure when sessions expire
+}));
 
 // To prevent errors from Cross Origin Resource Sharing
 app.use((req, res, next) => {
@@ -21,6 +33,9 @@ app.use((req, res, next) => {
 
 // configure users API
 app.use('/users', users);
+
+// configure IOTA API
+app.use('/iota', iota_api);
 
 const port = process.env.API_PORT || 8080;
 
