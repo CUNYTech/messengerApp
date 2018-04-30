@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
-// const uniqueValidator = require('mongoose-unique-validator');
+
+// Address Schema
+const AddressSchema = mongoose.Schema({
+  name: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  isPrivate: {
+    type: Boolean,
+  },
+});
 
 // User Schema
 const UserSchema = mongoose.Schema({
@@ -17,8 +29,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  addresses: [AddressSchema],
 });
-
-// UserSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('User', UserSchema);
